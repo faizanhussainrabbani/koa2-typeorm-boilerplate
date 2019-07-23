@@ -19,3 +19,9 @@ export const updatehero = async (ctx: Context, next: () => void) => {
     ctx.state.data = await service.updateHero(heroPayload);
     await next();
 };
+
+export const deletehero = async (ctx: Context, next: () => void) => {
+    const heroPayload: Heroes = ctx.request.body;
+    ctx.state.data = await service.deleteHero(heroPayload);
+    await next();
+};

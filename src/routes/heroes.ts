@@ -15,5 +15,7 @@ router.post('/', ctrl.addhero);
 
 router.put('/', ctrl.updatehero);
 
+router.delete('/', ctrl.deletehero);
+
 const routes = router.routes();
 export default compose([routes]);

@@ -16,3 +16,7 @@ export const save = async (hero: Heroes) => {
 export const update = async (hero: Heroes) => {
     return getRepository(Heroes).save(hero);
 };
+
+export const del = async (hero: Heroes) => {
+    return getRepository(Heroes).delete(hero.id);
+};

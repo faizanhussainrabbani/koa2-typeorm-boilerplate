@@ -24,3 +24,11 @@ export const updateHero = async (hero: Heroes) => {
 
     return repo.update(hero);
 };
+
+export const deleteHero = async (hero: Heroes) => {
+    await joi.validate(hero, {
+        id: joi.number().required()
+    });
+
+    return repo.del(hero);
+};
