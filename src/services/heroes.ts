@@ -8,7 +8,7 @@ export const getAll = async () => {
 };
 
 export const addHero = async (hero: IHeroRequest) => {
-    joi.validate(hero, {
+    await joi.validate(hero, {
         name: joi.string().required(),
     });
     const saveHero = new Heroes();

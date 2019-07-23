@@ -9,6 +9,6 @@ export const getAll = async (ctx: Context, next: () => void) => {
 
 export const addhero = async (ctx: Context, next: () => void) => {
     const heroPayload: IHeroRequest = ctx.request.body;
-    await service.addHero(heroPayload);
+    ctx.state.data = await service.addHero(heroPayload);
     await next();
 };
