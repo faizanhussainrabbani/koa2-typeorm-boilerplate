@@ -8,3 +8,8 @@ export const getAll = async () => {
         }
     });
 };
+
+export const save = async (hero: Heroes) => {
+    return getRepository(Heroes).save(hero);
+    // return getRepository(Heroes).insert(hero);
+};
