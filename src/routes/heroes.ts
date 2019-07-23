@@ -13,5 +13,7 @@ router.get('/', ctrl.getAll);
 
 router.post('/', ctrl.addhero);
 
+router.put('/', ctrl.updatehero);
+
 const routes = router.routes();
 export default compose([routes]);

@@ -10,6 +10,9 @@ export const getAll = async () => {
 };
 
 export const save = async (hero: Heroes) => {
+     return getRepository(Heroes).insert(hero);
+};
+
+export const update = async (hero: Heroes) => {
     return getRepository(Heroes).save(hero);
-    // return getRepository(Heroes).insert(hero);
 };

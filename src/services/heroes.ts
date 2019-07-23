@@ -15,3 +15,12 @@ export const addHero = async (hero: IHeroRequest) => {
     saveHero.name = hero.name;
     return repo.save(saveHero);
 };
+
+export const updateHero = async (hero: Heroes) => {
+    await joi.validate(hero, {
+        id: joi.number().required(),
+        name: joi.string().required()
+    });
+
+    return repo.update(hero);
+};
