@@ -20,7 +20,8 @@ export class AddTableUserDetails1563948769492 implements MigrationInterface {
                 {
                     name: 'email',
                     type: 'character varying',
-                    length: '200'
+                    length: '200',
+                    isUnique: true
                 },
                 {
                     name: 'password',

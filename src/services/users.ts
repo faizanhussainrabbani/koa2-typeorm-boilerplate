@@ -11,7 +11,7 @@ export const addUser = async (user: IUserRequest) => {
     });
     const saveUser = new Users();
     saveUser.name = user.name;
-    saveUser.email = user.name;
+    saveUser.email = user.email;
     saveUser.password = user.password;
     return repo.save(saveUser);
 };
