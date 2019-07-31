@@ -11,5 +11,7 @@ const router = new Router({
 
 router.post('/', ctrl.addUser);
 
+router.post('/login', ctrl.validateUser);
+
 const routes = router.routes();
 export default compose([routes]);
