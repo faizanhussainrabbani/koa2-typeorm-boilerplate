@@ -4,12 +4,13 @@ import * as Router from 'koa-router';
 import config from '../../config';
 
 import * as compose from 'koa-compose';
+import * as jwt from 'koa-jwt';
 
 const router = new Router({
     prefix: `${config.api.baseURL}/heroes`,
   });
 
-router.get('/', ctrl.getAll);
+router.get('/'/*, jwt({ secret: 'shared-secret' })*/, ctrl.getAll);
 
 router.post('/', ctrl.addhero);
 

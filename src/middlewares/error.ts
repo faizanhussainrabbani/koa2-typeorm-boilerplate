@@ -11,6 +11,9 @@ const isProduction = config.env === 'production';
 const handler = async (ctx: Context, next: () => void) => {
   try {
     await next();
+    if (ctx.state.meta && ctx.state.meta.status === 401) {
+      throw Boom.unauthorized('Authentication failed');
+    }
     if (!ctx.state.data) {
       throw Boom.notFound('API not found');
     }

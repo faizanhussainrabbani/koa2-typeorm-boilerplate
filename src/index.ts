@@ -12,6 +12,7 @@ import { bootstrap } from './bootstrap/index';
 import routeMiddleware from './routes/index';
 import errorMiddleware from './middlewares/error';
 import responseMiddleware from './middlewares/response';
+import * as jwt from 'koa-jwt';
 
 const logger = new Logger('koa2-typeorm-boilerplate').createLogger();
 
@@ -36,9 +37,14 @@ bootstrap()
         allowMethods: ['GET', 'POST', 'DELETE', 'PATCH', 'PUT'],
       }),
     );
+
     app.use(errorMiddleware());
     app.use(jsonMiddleware());
+    app.use(jwt({ secret: 'shared-secret' }).unless({
+      path: [/^\/api\/v1\/users\//]
+    }));
     app.use(routeMiddleware());
+
     app.use(responseMiddleware());
 
     app.listen(config.server.port, () => {

@@ -5,11 +5,13 @@ import config from '../../config';
 
 import * as compose from 'koa-compose';
 
+// import jwt = require('../middlewares/jwt');
+
 const router = new Router({
     prefix: `${config.api.baseURL}/users`,
   });
 
-router.post('/', ctrl.addUser);
+router.post('/add', ctrl.addUser);
 
 router.post('/login', ctrl.validateUser);
 
